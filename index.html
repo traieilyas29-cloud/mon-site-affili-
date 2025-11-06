@@ -1,230 +1,227 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Site Pro Ultra Boosté</title>
-<style>
-/* RESET */
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happn - Rencontres qui changent tout</title>
+  <style>
+    /* ===== Style général ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffe6f0; /* fond rose */
+      color: #333;
+    }
 
-/* BODY */
-body { background:#f4f4f4; color:#333; overflow-x:hidden; }
-<!-- Section hero -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Des rencontres qui changent tout</h1>
-    <p>Rejoignez notre communauté et trouvez des liens qui transforment votre vie.</p>
-    <div class="buttons">
-      <a href="#" class="btn-primary">S'inscrire</a>
-      <a href="#" class="btn-secondary">En savoir plus</a>
-    </div>
-  </div>
-</section>
+    a {
+      text-decoration: none;
+    }
 
-<!-- Galerie de photos -->
-<section class="gallery">
-  <img src="https://via.placeholder.com/300x200?text=Rencontre+1" alt="Rencontre 1">
-  <img src="https://via.placeholder.com/300x200?text=Rencontre+2" alt="Rencontre 2">
-  <img src="https://via.placeholder.com/300x200?text=Rencontre+3" alt="Rencontre 3">
-  <img src="https://via.placeholder.com/300x200?text=Rencontre+4" alt="Rencontre 4">
-  <img src="https://via.placeholder.com/300x200?text=Rencontre+5" alt="Rencontre 5">
-</section>
-/* HEADER */
-header {
-  background: linear-gradient(90deg,#1e90ff,#00bfff);
-  color:white;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  padding:15px 5%;
-  box-shadow:0 2px 6px rgba(0,0,0,0.2);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-header h1 { font-size:1.8em; }
-nav { display:flex; gap:20px; }
-nav a { color:white; text-decoration:none; font-weight:bold; padding:8px 15px; border-radius:5px; transition:0.3s; }
-nav a:hover { background: rgba(255,255,255,0.2); }
+    /* ===== Barre principale ===== */
+    header {
+      background-color: #ff3366;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
 
-/* CARROUSEL */
-.carousel { width:90%; max-width:1200px; margin:30px auto; position:relative; overflow:hidden; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-.slides { display:flex; transition:transform 0.5s ease-in-out; }
-.slide { min-width:100%; position:relative; overflow:hidden; }
-.slide img { width:100%; display:block; height:300px; object-fit:cover; transition: transform 0.5s; }
-.slide:hover img { transform: scale(1.05); }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.slide-content { position:absolute; bottom:20px; left:20px; background:rgba(0,0,0,0.6); padding:15px 20px; border-radius:8px; color:white; opacity:0; transform:translateY(30px); transition: all 0.6s ease-out; }
-.slide-content.show { opacity:1; transform:translateY(0); }
-.slide-content h2 { font-size:1.5em; margin-bottom:5px; }
-.slide-content p { font-size:1em; margin-bottom:10px; }
-.slide-content a { display:inline-block; padding:10px 20px; background:#1e90ff; text-decoration:none; color:white; border-radius:5px; font-weight:bold; animation:pulse 2s infinite; transition:0.3s; }
-.slide-content a:hover { background:#0b68c0; transform:scale(1.05); }
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
 
-/* Pulse animation */
-@keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.1);} }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Flèches */
-.arrow { position:absolute; top:50%; transform:translateY(-50%); font-size:2em; color:white; background:rgba(0,0,0,0.3); padding:5px 10px; border-radius:50%; cursor:pointer; user-select:none; transition:0.3s; }
-.arrow:hover { background:rgba(0,0,0,0.6); }
-.arrow.left { left:10px; }
-.arrow.right { right:10px; }
+    nav li {
+      margin-left: 25px;
+    }
 
-/* SECTIONS */
-.section { width:90%; max-width:1200px; margin:50px auto; padding:20px; background:white; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); opacity:0; transform:translateY(50px); transition: all 0.8s ease-out; }
-.section.show { opacity:1; transform:translateY(0); }
-.section h2 { color:#1e90ff; margin-bottom:15px; font-size:1.8em; }
-.section p { margin-bottom:15px; line-height:1.6; }
-.contact-btn { display:inline-block; padding:10px 20px; background:#1e90ff; color:white; text-decoration:none; border-radius:5px; font-weight:bold; animation:pulse 2s infinite; transition:0.3s; }
-.contact-btn:hover { background:#0b68c0; transform:scale(1.05); }
+    nav a {
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
 
-/* FOOTER */
-footer { text-align:center; padding:20px 0; background:#333; color:white; margin-top:50px; }
+    nav a:hover {
+      color: #ffe6f0;
+    }
 
-/* RESPONSIVE */
-@media(max-width:768px){ header { flex-direction:column; gap:10px; } }
-@media(max-width:480px){ header h1{font-size:1.4em;} .slide-content h2{font-size:1.2em;} .slide-content a{width:100%; text-align:center;} }
+    /* ===== Section hero ===== */
+    .hero {
+      position: relative;
+      text-align: center;
+      color: white;
+      height: 500px;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1200x500?text=Happn+Rencontres') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-</style>
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .hero .buttons a {
+      padding: 15px 30px;
+      margin: 0 10px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero .btn-primary {
+      background-color: #ff3366;
+      color: white;
+    }
+
+    .hero .btn-primary:hover {
+      background-color: #ff6699;
+    }
+
+    .hero .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .hero .btn-secondary:hover {
+      background-color: white;
+      color: #ff3366;
+    }
+
+    /* ===== Section texte accrocheur ===== */
+    .features {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .features h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #ff3366;
+    }
+
+    .features p {
+      font-size: 20px;
+      max-width: 800px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+
+    /* ===== Galerie de captures ===== */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 50px 0;
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: #ff3366;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <h1>Site Pro Ultra Boosté</h1>
-  <nav>
-    <a href="#carousel">Promotions</a>
-    <a href="#about">À propos</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- Barre principale -->
+  <header>
+    <nav>
+      <div class="logo">Happn</div>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#">Fonctionnalités</a></li>
+        <li><a href="#">Télécharger</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- CARROUSEL -->
-<div class="carousel" id="carousel">
-  <div class="slides">
-    <div class="slide">
-      <img src="https://via.placeholder.com/1200x300.png?text=Produit+1" alt="Produit 1">
-      <div class="slide-content">
-        <h2>Promotion 1</h2>
-        <p>Produit incroyable qui va transformer votre quotidien. Offre limitée !</p>
-        <a href="https://exemple.com/affiliation1" target="_blank">Voir l'offre</a>
+  <!-- Section hero avec grand titre -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Des rencontres qui changent tout</h1>
+      <p>Trouvez votre âme sœur près de chez vous grâce à Happn. Des profils authentiques et des connexions réelles.</p>
+      <div class="buttons">
+        <a href="https://www.happn.com/fr/" target="_blank" class="btn-primary">Télécharger l'app</a>
+        <a href="#" class="btn-secondary">En savoir plus</a>
       </div>
     </div>
-    <div class="slide">
-      <img src="https://via.placeholder.com/1200x300.png?text=Produit+2" alt="Produit 2">
-      <div class="slide-content">
-        <h2>Promotion 2</h2>
-        <p>Offre exclusive sur notre produit phare. Ne manquez pas !</p>
-        <a href="https://exemple.com/affiliation2" target="_blank">Voir l'offre</a>
-      </div>
-    </div>
-    <div class="slide">
-      <img src="https://via.placeholder.com/1200x300.png?text=Produit+3" alt="Produit 3">
-      <div class="slide-content">
-        <h2>Promotion 3</h2>
-        <p>Promo parfaite pour découvrir notre service premium. Cliquez maintenant !</p>
-        <a href="https://exemple.com/affiliation3" target="_blank">Voir l'offre</a>
-      </div>
-    </div>
-  </div>
-  <div class="arrow left">&#10094;</div>
-  <div class="arrow right">&#10095;</div>
-</div>
+  </section>
 
-<!-- ABOUT -->
-<div class="section" id="about">
-  <h2>À propos</h2>
-  <p>Bienvenue sur mon site professionnel d'affiliation. Ici, vous trouverez les meilleures offres sélectionnées pour vous avec soin. Nous vous assurons des promotions fiables et exclusives pour chaque produit présenté.</p>
-</div>
+  <!-- Section texte accrocheur -->
+  <section class="features">
+    <h2>Pourquoi choisir Happn ?</h2>
+    <p>Happn vous montre les personnes que vous avez croisées dans la vraie vie. Connectez-vous avec celles qui partagent vos centres d’intérêt et commencez à discuter immédiatement.</p>
+    <p>Des milliers de rencontres chaque jour, des profils vérifiés et des fonctionnalités interactives pour créer des liens authentiques et amusants.</p>
+  </section>
 
-<!-- CONTACT -->
-<div class="section" id="contact">
-  <h2>Contact</h2>
-  <p>Pour toute question ou collaboration, contactez-moi directement. Réponse rapide garantie.</p>
-  <a href="mailto:votre.email@example.com" class="contact-btn">Envoyer un message</a>
-</div>
+  <!-- Galerie de captures / écrans -->
+  <section class="gallery">
+    <img src="https://via.placeholder.com/300x500?text=Ecran+1" alt="Capture 1">
+    <img src="https://via.placeholder.com/300x500?text=Ecran+2" alt="Capture 2">
+    <img src="https://via.placeholder.com/300x500?text=Ecran+3" alt="Capture 3">
+    <img src="https://via.placeholder.com/300x500?text=Ecran+4" alt="Capture 4">
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  &copy; 2025 Site Pro Ultra Boosté. Tous droits réservés.
-</footer>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Happn. Tous droits réservés. | <a href="https://www.happn.com/fr/" target="_blank">Lien officiel</a>
+  </footer>
 
-<!-- JS -->
-<script>
-// Carrousel automatique et manuel
-const slides = document.querySelector('.slides');
-const slideElements = document.querySelectorAll('.slide');
-const slideCount = slideElements.length;
-let index = 0;
-
-function showSlide(i){
-  slides.style.transform = `translateX(-${i*100}%)`;
-  // show content animation
-  slideElements.forEach(slide=>slide.querySelector('.slide-content').classList.remove('show'));
-  slideElements[i].querySelector('.slide-content').classList.add('show');
-}
-
-// Auto slide
-let autoSlide = setInterval(()=>{ index = (index+1)%slideCount; showSlide(index); },4000);
-
-// Flèches
-document.querySelector('.arrow.left').addEventListener('click', ()=>{
-  index = (index-1+slideCount)%slideCount;
-  showSlide(index);
-  resetAuto();
-});
-document.querySelector('.arrow.right').addEventListener('click', ()=>{
-  index = (index+1)%slideCount;
-  showSlide(index);
-  resetAuto();
-});
-
-function resetAuto(){
-  clearInterval(autoSlide);
-  autoSlide = setInterval(()=>{ index = (index+1)%slideCount; showSlide(index); },4000);
-}
-
-// Initial display
-showSlide(index);
-
-// Scroll animation
-const sections = document.querySelectorAll('.section');
-window.addEventListener('scroll',()=>{
-  const trigger = window.innerHeight*0.8;
-  sections.forEach(section=>{
-    const top = section.getBoundingClientRect().top;
-    if(top<trigger) section.classList.add('show');
-  });
-});
-</script>
-<section id="presentation" style="text-align:center; padding:30px; background-color:#fff0f5;">
-  <h2 style="color:#ff4b6e;">✨ Bienvenue sur mon espace de rencontres ✨</h2>
-  <p style="font-size:18px; color:#333; max-width:600px; margin:auto;">
-    Ici, je te présente Happn, une application de rencontre unique où tu peux retrouver les personnes que tu croises dans la vraie vie.  
-    L’amour n’est jamais loin 💖
-  </p>
-</section>
-
-<section id="photos" style="padding:20px; text-align:center;">
-  <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Couple heureux" style="width:90%; max-width:350px; border-radius:10px; margin:10px;">
-  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Rencontre romantique" style="width:90%; max-width:350px; border-radius:10px; margin:10px;">
-</section>
-
-<section id="infos" style="background-color:#ffe4e1; padding:30px; text-align:center;">
-  <h3 style="color:#ff4b6e;">Pourquoi choisir Happn ? 💞</h3>
-  <ul style="list-style:none; padding:0; font-size:17px;">
-    <li>💬 Rencontres réelles, proches de chez toi</li>
-    <li>📍 Basé sur les croisements dans la vie réelle</li>
-    <li>🔒 Respect total de la vie privée</li>
-    <li>💘 Des millions d’utilisateurs dans le monde</li>
-  </ul>
-</section>
-
-<section id="action" style="text-align:center; padding:40px;">
-  <a href="https://www.happn.com" target="_blank" style="background-color:#ff4b6e; color:white; padding:15px 25px; border-radius:8px; text-decoration:none; font-size:18px;">
-    👉 Rejoindre Happn maintenant
-  </a>
-</section>
 </body>
 </html>
