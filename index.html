@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Pro Ultra Boosté</title>
+<style>
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* BODY */
+body { background:#f4f4f4; color:#333; overflow-x:hidden; }
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg,#1e90ff,#00bfff);
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:15px 5%;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header h1 { font-size:1.8em; }
+nav { display:flex; gap:20px; }
+nav a { color:white; text-decoration:none; font-weight:bold; padding:8px 15px; border-radius:5px; transition:0.3s; }
+nav a:hover { background: rgba(255,255,255,0.2); }
+
+/* CARROUSEL */
+.carousel { width:90%; max-width:1200px; margin:30px auto; position:relative; overflow:hidden; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+.slides { display:flex; transition:transform 0.5s ease-in-out; }
+.slide { min-width:100%; position:relative; overflow:hidden; }
+.slide img { width:100%; display:block; height:300px; object-fit:cover; transition: transform 0.5s; }
+.slide:hover img { transform: scale(1.05); }
+
+.slide-content { position:absolute; bottom:20px; left:20px; background:rgba(0,0,0,0.6); padding:15px 20px; border-radius:8px; color:white; opacity:0; transform:translateY(30px); transition: all 0.6s ease-out; }
+.slide-content.show { opacity:1; transform:translateY(0); }
+.slide-content h2 { font-size:1.5em; margin-bottom:5px; }
+.slide-content p { font-size:1em; margin-bottom:10px; }
+.slide-content a { display:inline-block; padding:10px 20px; background:#1e90ff; text-decoration:none; color:white; border-radius:5px; font-weight:bold; animation:pulse 2s infinite; transition:0.3s; }
+.slide-content a:hover { background:#0b68c0; transform:scale(1.05); }
+
+/* Pulse animation */
+@keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.1);} }
+
+/* Flèches */
+.arrow { position:absolute; top:50%; transform:translateY(-50%); font-size:2em; color:white; background:rgba(0,0,0,0.3); padding:5px 10px; border-radius:50%; cursor:pointer; user-select:none; transition:0.3s; }
+.arrow:hover { background:rgba(0,0,0,0.6); }
+.arrow.left { left:10px; }
+.arrow.right { right:10px; }
+
+/* SECTIONS */
+.section { width:90%; max-width:1200px; margin:50px auto; padding:20px; background:white; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); opacity:0; transform:translateY(50px); transition: all 0.8s ease-out; }
+.section.show { opacity:1; transform:translateY(0); }
+.section h2 { color:#1e90ff; margin-bottom:15px; font-size:1.8em; }
+.section p { margin-bottom:15px; line-height:1.6; }
+.contact-btn { display:inline-block; padding:10px 20px; background:#1e90ff; color:white; text-decoration:none; border-radius:5px; font-weight:bold; animation:pulse 2s infinite; transition:0.3s; }
+.contact-btn:hover { background:#0b68c0; transform:scale(1.05); }
+
+/* FOOTER */
+footer { text-align:center; padding:20px 0; background:#333; color:white; margin-top:50px; }
+
+/* RESPONSIVE */
+@media(max-width:768px){ header { flex-direction:column; gap:10px; } }
+@media(max-width:480px){ header h1{font-size:1.4em;} .slide-content h2{font-size:1.2em;} .slide-content a{width:100%; text-align:center;} }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>Site Pro Ultra Boosté</h1>
+  <nav>
+    <a href="#carousel">Promotions</a>
+    <a href="#about">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- CARROUSEL -->
+<div class="carousel" id="carousel">
+  <div class="slides">
+    <div class="slide">
+      <img src="https://via.placeholder.com/1200x300.png?text=Produit+1" alt="Produit 1">
+      <div class="slide-content">
+        <h2>Promotion 1</h2>
+        <p>Produit incroyable qui va transformer votre quotidien. Offre limitée !</p>
+        <a href="https://exemple.com/affiliation1" target="_blank">Voir l'offre</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/1200x300.png?text=Produit+2" alt="Produit 2">
+      <div class="slide-content">
+        <h2>Promotion 2</h2>
+        <p>Offre exclusive sur notre produit phare. Ne manquez pas !</p>
+        <a href="https://exemple.com/affiliation2" target="_blank">Voir l'offre</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/1200x300.png?text=Produit+3" alt="Produit 3">
+      <div class="slide-content">
+        <h2>Promotion 3</h2>
+        <p>Promo parfaite pour découvrir notre service premium. Cliquez maintenant !</p>
+        <a href="https://exemple.com/affiliation3" target="_blank">Voir l'offre</a>
+      </div>
+    </div>
+  </div>
+  <div class="arrow left">&#10094;</div>
+  <div class="arrow right">&#10095;</div>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <h2>À propos</h2>
+  <p>Bienvenue sur mon site professionnel d'affiliation. Ici, vous trouverez les meilleures offres sélectionnées pour vous avec soin. Nous vous assurons des promotions fiables et exclusives pour chaque produit présenté.</p>
+</div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <h2>Contact</h2>
+  <p>Pour toute question ou collaboration, contactez-moi directement. Réponse rapide garantie.</p>
+  <a href="mailto:votre.email@example.com" class="contact-btn">Envoyer un message</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 Site Pro Ultra Boosté. Tous droits réservés.
+</footer>
+
+<!-- JS -->
+<script>
+// Carrousel automatique et manuel
+const slides = document.querySelector('.slides');
+const slideElements = document.querySelectorAll('.slide');
+const slideCount = slideElements.length;
+let index = 0;
+
+function showSlide(i){
+  slides.style.transform = `translateX(-${i*100}%)`;
+  // show content animation
+  slideElements.forEach(slide=>slide.querySelector('.slide-content').classList.remove('show'));
+  slideElements[i].querySelector('.slide-content').classList.add('show');
+}
+
+// Auto slide
+let autoSlide = setInterval(()=>{ index = (index+1)%slideCount; showSlide(index); },4000);
+
+// Flèches
+document.querySelector('.arrow.left').addEventListener('click', ()=>{
+  index = (index-1+slideCount)%slideCount;
+  showSlide(index);
+  resetAuto();
+});
+document.querySelector('.arrow.right').addEventListener('click', ()=>{
+  index = (index+1)%slideCount;
+  showSlide(index);
+  resetAuto();
+});
+
+function resetAuto(){
+  clearInterval(autoSlide);
+  autoSlide = setInterval(()=>{ index = (index+1)%slideCount; showSlide(index); },4000);
+}
+
+// Initial display
+showSlide(index);
+
+// Scroll animation
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll',()=>{
+  const trigger = window.innerHeight*0.8;
+  sections.forEach(section=>{
+    const top = section.getBoundingClientRect().top;
+    if(top<trigger) section.classList.add('show');
+  });
+});
+</script>
+
+</body>
+</html>
