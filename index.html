@@ -1,139 +1,244 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fitness & Santé - Perte de Poids</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Elias Fitness & Santé — Perdre du poids avec BETERME</title>
+<meta name="description" content="Aide les gens à perdre du poids et à retrouver la forme grâce à Beterme et à des conseils fitness & nutrition." />
 <style>
-  body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    background: linear-gradient(to bottom right, #ffe6f0, #ffffff);
-    color: #333;
+  /* === Style intégré : noir + vert/blanc === */
+  :root{
+    --bg:#050505;
+    --panel:#0a0a0a;
+    --green:#29d07a; /* vert principal */
+    --white:#ffffff;
+    --muted:#9aa7b2;
+    --max-width:1100px;
+    --radius:12px;
   }
-  header {
-    text-align: center;
-    padding: 50px 20px;
-    background: #ffb6c1;
-    color: white;
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:linear-gradient(180deg,#000000 0%, #070707 100%);
+    color:var(--white);
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    padding:18px 12px 60px;
   }
-  header h1 {
-    font-size: 3em;
-    margin: 0;
-    text-shadow: 1px 1px 4px #00000033;
+  .wrap{max-width:var(--max-width);margin:0 auto;}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(45deg,var(--green),#1fb36a);display:flex;align-items:center;justify-content:center;font-weight:700;color:#001106}
+  nav a{color:var(--white);text-decoration:none;margin-left:12px;padding:8px;border-radius:8px;font-size:0.95rem}
+  nav a:hover{background:rgba(255,255,255,0.025)}
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr;gap:18px;margin:14px 0;padding:20px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+  .hero h1{font-size:28px;color:var(--green);margin-bottom:6px}
+  .hero p.lead{color:var(--white);font-size:1.05rem;margin-bottom:8px}
+  .hero p.sub{color:var(--muted);margin-bottom:6px}
+  .video-wrap{width:100%;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+  .video-wrap iframe{width:100%;height:420px;border:0;display:block}
+  /* Sections */
+  section{margin:28px 0;padding:18px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+  h2{color:var(--white);margin-bottom:8px}
+  .muted{color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(255,255,255,0.01));padding:14px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.6)}
+  .card h3{color:var(--green);margin-bottom:6px}
+  .full-img{width:100%;height:320px;border-radius:10px;overflow:hidden}
+  .full-img img{width:100%;height:100%;object-fit:cover;display:block}
+  /* Beterme CTA */
+  .beterme{
+    display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(41,208,122,0.06), rgba(41,208,122,0.02));align-items:flex-start;
   }
-  .bubbles {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-    gap: 20px;
+  .beterme .title{font-size:1.2rem;color:var(--green);font-weight:700}
+  .btn{
+    display:inline-block;padding:12px 18px;border-radius:10px;background:var(--green);color:#00210f;text-decoration:none;font-weight:700;box-shadow:0 6px 20px rgba(41,208,122,0.15)
   }
-  .bubble {
-    width: 80px;
-    height: 80px;
-    background: #ff69b4;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9em;
-    text-align: center;
-    animation: float 3s ease-in-out infinite;
-    cursor: pointer;
-    transition: transform 0.3s;
+  .btn.secondary{background:transparent;color:var(--green);border:1px solid rgba(41,208,122,0.18)}
+  /* Footer */
+  footer{margin-top:26px;color:var(--muted);text-align:center;padding-top:12px}
+  /* responsive */
+  @media(min-width:900px){
+    .hero{grid-template-columns:1fr 480px}
+    .video-wrap iframe{height:320px}
   }
-  .bubble:hover {
-    transform: translateY(-10px) scale(1.1);
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-  }
-  .content {
-    padding: 20px;
-    max-width: 1100px;
-    margin: auto;
-  }
-  .content h2 {
-    text-align: center;
-    color: #ff1493;
-    margin-bottom: 20px;
-  }
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-  }
-  .gallery img, .gallery video {
-    max-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px #00000022;
-  }
-  .button {
-    display: inline-block;
-    background: #ff1493;
-    color: white;
-    padding: 15px 25px;
-    margin: 10px 0;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: 0.3s;
-  }
-  .button:hover {
-    background: #ff69b4;
-  }
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: #ffb6c1;
-    color: white;
-  }
+  /* focus for accessibility */
+  a:focus,button:focus{outline:3px solid rgba(41,208,122,0.18);outline-offset:3px}
 </style>
 </head>
 <body>
+  <div class="wrap">
+    <header aria-label="En-tête du site">
+      <div class="brand">
+        <div class="logo">EF</div>
+        <div>
+          <div style="font-weight:700">Elias Fitness &amp; Santé</div>
+          <div style="font-size:.85rem;color:var(--muted)">Perte de poids • Prise de masse • Nutrition</div>
+        </div>
+      </div>
 
-<header>
-  <h1>Fitness & Santé - Transformez Votre Vie</h1>
-</header>
+      <nav aria-label="Navigation principale">
+        <a href="#accueil">Accueil</a>
+        <a href="#programmes">Programmes</a>
+        <a href="#blog">E-blog</a>
+        <a href="#beterme">Beterme</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<div class="bubbles">
-  <div class="bubble">Contact</div>
-  <div class="bubble">Applications</div>
-  <div class="bubble">Inscription</div>
-  <div class="bubble">Conseils</div>
-</div>
+    <!-- HERO: titre + vidéo -->
+    <section id="accueil" class="hero" aria-labelledby="hero-title">
+      <div class="text">
+        <h1 id="hero-title">Aide les gens à perdre du poids et à retrouver la forme</h1>
+        <p class="lead">Reprenez le contrôle de votre santé avec des programmes concrets, une nutrition adaptée et l'app BETERME — votre coach dans la poche.</p>
+        <p class="sub">Perdre du poids sainement, prendre du muscle, ou simplement retrouver de l'énergie — commencez aujourd'hui.</p>
+        <div style="margin-top:8px">
+          <a href="#programmes" class="btn">Découvrir les programmes</a>
+          <a href="#beterme" class="btn secondary" style="margin-left:8px">Voir BETERME</a>
+        </div>
+      </div>
 
-<div class="content">
-  <h2>Perdez du poids et restez en forme avec les meilleures applications et conseils santé</h2>
+      <div class="video-wrap" aria-hidden="false" aria-label="Vidéo de motivation">
+        <!-- VIDEO intégrée (YouTube) : vidéo choisie pour motivation / transformation -->
+        <!-- Si tu préfères MP4 hébergé, on peut remplacer l'iframe par <video src="..."> -->
+        <iframe src="https://www.youtube.com/embed/iTohpGYBWvA?rel=0&showinfo=0&modestbranding=1"
+                title="Vidéo motivation transformation"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+    </section>
 
-  <p>Découvrez comment atteindre vos objectifs de fitness avec nos programmes personnalisés, applications mobiles et routines d’exercices efficaces. Améliorez votre santé, brûlez des calories et construisez du muscle rapidement.</p>
+    <!-- PROGRAMMES -->
+    <section id="programmes" aria-labelledby="prog-title">
+      <h2 id="prog-title">Nos Programmes</h2>
+      <p class="muted">Choisis l'objectif qui te correspond — chaque programme contient plan d'entraînement, nutrition et suivi.</p>
 
-  <div class="gallery">
-    <!-- Exemple de vidéo cinématique -->
-    <video controls autoplay muted loop>
-      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas les vidéos HTML5.
-    </video>
-    <!-- Exemples de photos -->
-    <img src="https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg" alt="Exercice fitness">
-    <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg" alt="Nutrition saine">
-    <img src="https://images.pexels.com/photos/669576/pexels-photo-669576.jpeg" alt="Perte de poids">
+      <div class="grid" style="margin-top:14px">
+        <div class="card">
+          <h3>Perte de poids — 12 semaines</h3>
+          <p class="muted">Déficit contrôlé, entraînements cardio + renfo, coachings hebdo.</p>
+          <ul style="margin-top:8px;color:var(--muted)">
+            <li>3 séances/semaine</li>
+            <li>Plan alimentaire personnalisé</li>
+            <li>Suivi et ajustements</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Prise de masse saine — 16 semaines</h3>
+          <p class="muted">Calories & protéines calculées, cycles force & hypertrophie.</p>
+        </div>
+
+        <div class="card">
+          <h3>Remise en forme douce</h3>
+          <p class="muted">Idéal débutants, seniors ou retour progressif à l'activité.</p>
+        </div>
+
+        <div class="card">
+          <h3>Cardio & mobilité</h3>
+          <p class="muted">Interval training, mobilité et prévention des blessures.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- large illustration -->
+    <section aria-label="Visuel inspirant">
+      <div class="full-img" style="height:360px">
+        <img alt="Personnes en entraînement" loading="lazy" src="https://images.unsplash.com/photo-1554284126-aa88f22d8d1e?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" style="width:100%;height:100%;object-fit:cover;border-radius:8px">
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" aria-labelledby="blog-title">
+      <h2 id="blog-title">E-blog — Articles récents</h2>
+      <p class="muted">Conseils pratiques, erreurs à éviter, recettes et témoignages.</p>
+
+      <div class="grid" style="margin-top:12px">
+        <article class="card">
+          <h3>5 erreurs qui empêchent de perdre du poids</h3>
+          <p class="muted">Mauvaises habitudes, régimes yo-yo et comment rectifier.</p>
+        </article>
+
+        <article class="card">
+          <h3>Trouver l'équilibre alimentaire</h3>
+          <p class="muted">Macros, timing et exemples de menus simples.</p>
+        </article>
+
+        <article class="card">
+          <h3>Exercices efficaces à la maison</h3>
+          <p class="muted">Pas d'équipement ? Pas de problème — entraînements à effet maximal.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- BETTERME AFFILIATION -->
+    <section id="beterme" aria-labelledby="beterme-title">
+      <h2 id="beterme-title">BETERME — ton coach dans la poche</h2>
+      <div class="beterme" style="margin-top:12px">
+        <div class="title">Pourquoi BETERME ?</div>
+        <div class="muted">BETERME t'aide à suivre tes repas, tes entraînements et te motive chaque jour. Parfait pour quelqu'un qui veut perdre du poids durablement.</div>
+        <ul style="color:var(--muted);margin-top:6px">
+          <li>Programmes personnalisés</li>
+          <li>Suivi des calories et macros</li>
+          <li>Rappels et motivation quotidienne</li>
+        </ul>
+        <div style="margin-top:10px">
+          <!-- Remplace '#' par ton lien d'affiliation BETERME -->
+          <a class="btn" href="#" id="beterme-button" target="_blank" rel="noopener">Télécharger BETERME (Lien affilié)</a>
+          <a class="btn secondary" href="#contact" style="margin-left:10px">Contact / Demande d'info</a>
+        </div>
+        <div style="margin-top:10px;color:var(--muted);font-size:.95rem">Astuce : Ajoute ton lien d'affiliation à `href` du bouton ci-dessus dans GitHub après avoir collé le fichier.</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p class="muted">Tu veux le guide gratuit 7 jours ou un accompagnement ? Laisse un message.</p>
+
+      <form onsubmit="handleForm(event)" style="margin-top:12px;max-width:720px;display:grid;gap:8px">
+        <input id="name" name="name" placeholder="Nom complet" required style="padding:12px;border-radius:8px;border:1px solid #111;background:#070707;color:var(--white)">
+        <input id="email" name="email" placeholder="Email" type="email" required style="padding:12px;border-radius:8px;border:1px solid #111;background:#070707;color:var(--white)">
+        <textarea id="message" name="message" rows="5" placeholder="Message..." required style="padding:12px;border-radius:8px;border:1px solid #111;background:#070707;color:var(--white)"></textarea>
+        <div>
+          <button type="submit" class="btn">Envoyer</button>
+        </div>
+        <div id="form-msg" style="color:var(--muted);font-size:.95rem"></div>
+      </form>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Elias Fitness &amp; Santé — Conçu pour la perte de poids &amp; la santé
+    </footer>
   </div>
 
-  <div style="text-align:center; margin-top:30px;">
-    <a class="button" href="LIEN_AFFILIE_APP1" target="_blank">Télécharger Step App</a>
-    <a class="button" href="LIEN_AFFILIE_APP2" target="_blank">Télécharger Freeletics</a>
-    <a class="button" href="LIEN_AFFILIE_APP3" target="_blank">Télécharger Yazio</a>
-  </div>
-</div>
+<script>
+  // année dans le footer
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-<footer>
-  &copy; 2025 Santé & Fitness. Tous droits réservés.
-</footer>
+  // Simuler envoi de formulaire (GitHub Pages n'a pas de backend par défaut)
+  function handleForm(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if(!name||!email||!message){ document.getElementById('form-msg').textContent='Remplis tous les champs.'; return; }
+    // Option 1 (simple): ouvrir mail client
+    const subject = encodeURIComponent('Contact depuis site - ' + name);
+    const body = encodeURIComponent('Nom: '+name+'%0AEmail: '+email+'%0A%0AMessage:%0A'+message);
+    window.location.href = 'mailto:ton-email@exemple.com?subject='+subject+'&body='+body;
+    // Remplace ton-email@exemple.com par ton vrai email dans GitHub après collage.
+  }
 
+  // petit comportement : si bouton BETERME a href '#', on montre un message
+  document.getElementById('beterme-button').addEventListener('click', function(e){
+    if(this.getAttribute('href') === '#'){
+      e.preventDefault();
+      alert('Pense à remplacer le lien # par ton lien d\'affiliation BETERME dans le code.');
+    }
+  });
+</script>
 </body>
 </html>
