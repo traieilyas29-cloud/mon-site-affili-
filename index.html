@@ -6,7 +6,6 @@
     <title>ILIAS FITNESS & SANTÉ PRO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Styles de base */
         * {
             margin: 0;
             padding: 0;
@@ -15,20 +14,24 @@
         }
 
         body {
-            background-color: #0a0a0a;
+            background: 
+                /* Fond noir semi-transparent par-dessus l'image */
+                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)),
+                /* Votre image BETERME en fond */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%23000"/><text x="50%" y="45%" font-family="Arial" font-size="48" font-weight="bold" fill="%2300ff64" text-anchor="middle">BETERME</text><text x="50%" y="55%" font-family="Arial" font-size="24" fill="%23fff" text-anchor="middle">Prenez soin de votre santé</text></svg>')
+                center/cover no-repeat fixed;
             color: #e0e0e0;
             overflow-x: hidden;
             line-height: 1.6;
+            min-height: 100vh;
         }
 
-        /* Conteneur principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* En-tête */
         header {
             padding: 30px 0;
             border-bottom: 1px solid rgba(0, 255, 100, 0.2);
@@ -61,7 +64,6 @@
             margin-top: 10px;
         }
 
-        /* Navigation */
         nav ul {
             display: flex;
             list-style: none;
@@ -84,17 +86,21 @@
             background-color: rgba(0, 255, 100, 0.1);
         }
 
-        /* Section Hero */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 80px 0;
+            padding: 100px 0;
             gap: 50px;
         }
 
         .hero-content {
             flex: 1;
+            background: rgba(10, 10, 10, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 100, 0.3);
+            box-shadow: 0 0 30px rgba(0, 255, 100, 0.2);
         }
 
         .hero-title {
@@ -123,85 +129,6 @@
             margin-top: 40px;
         }
 
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image-placeholder {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a3a2a 100%);
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgba(0, 255, 100, 0.3);
-            box-shadow: 0 0 30px rgba(0, 255, 100, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-image-placeholder::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 255, 100, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        .body-transformation {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #00ff64;
-            margin-bottom: 15px;
-            z-index: 1;
-        }
-
-        .body-icons {
-            display: flex;
-            gap: 15px;
-            z-index: 1;
-        }
-
-        .body-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .buff-dudes {
-            background-color: #00ff64;
-            color: #0a0a0a;
-        }
-
-        .yellow {
-            background-color: #ffcc00;
-            color: #0a0a0a;
-        }
-
-        .green {
-            background-color: #00cc66;
-            color: #0a0a0a;
-        }
-
-        .purple {
-            background-color: #9966ff;
-            color: #0a0a0a;
-        }
-
-        /* Boutons */
         .btn {
             display: inline-block;
             padding: 15px 35px;
@@ -241,7 +168,6 @@
             box-shadow: 0 0 20px rgba(0, 255, 100, 0.5);
         }
 
-        /* Section des programmes */
         .programs {
             padding: 100px 0;
             text-align: center;
@@ -319,24 +245,14 @@
             margin-bottom: 25px;
         }
 
-        /* Section BETERME */
         .beterme {
             padding: 100px 0;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a2a1a 100%);
+            background: rgba(10, 10, 10, 0.9);
             border-radius: 20px;
             margin: 50px 0;
             position: relative;
             overflow: hidden;
-        }
-
-        .beterme::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 255, 100, 0.05) 0%, transparent 70%);
+            border: 1px solid rgba(0, 255, 100, 0.3);
         }
 
         .beterme-content {
@@ -344,8 +260,6 @@
             align-items: center;
             justify-content: space-between;
             gap: 50px;
-            position: relative;
-            z-index: 1;
         }
 
         .beterme-text {
@@ -405,11 +319,11 @@
             color: #00ff64;
         }
 
-        /* Footer */
         footer {
             padding: 60px 0 30px;
             border-top: 1px solid rgba(0, 255, 100, 0.2);
             text-align: center;
+            background: rgba(10, 10, 10, 0.8);
         }
 
         .footer-logo {
@@ -441,16 +355,6 @@
             font-size: 0.9rem;
         }
 
-        /* Animations */
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(0, 255, 100, 0.7);
@@ -467,7 +371,6 @@
             animation: pulse 2s infinite;
         }
 
-        /* Responsive */
         @media (max-width: 992px) {
             .hero {
                 flex-direction: column;
@@ -515,7 +418,6 @@
     </style>
 </head>
 <body>
-    <!-- En-tête -->
     <header>
         <div class="container">
             <div class="header-top">
@@ -534,7 +436,6 @@
         </div>
     </header>
 
-    <!-- Section Hero -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -546,21 +447,9 @@
                     <a href="#" class="btn btn-secondary">Voir BETERME</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="hero-image-placeholder">
-                    <div class="body-transformation">Body Transformation</div>
-                    <div class="body-icons">
-                        <div class="body-icon buff-dudes">B</div>
-                        <div class="body-icon yellow">🟡</div>
-                        <div class="body-icon green">🟢</div>
-                        <div class="body-icon purple">🟣</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Section Programmes -->
     <section class="programs">
         <div class="container">
             <h2 class="section-title">Nos <span>Programmes</span> de Transformation</h2>
@@ -597,7 +486,6 @@
         </div>
     </section>
 
-    <!-- Section BETERME -->
     <section class="beterme">
         <div class="container">
             <div class="beterme-content">
@@ -635,7 +523,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-logo">ILIAS FITNESS</div>
