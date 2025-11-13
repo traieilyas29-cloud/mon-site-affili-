@@ -3,82 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deel - Gestion RH et paiements internationaux</title>
+<title>TonTitreIA - Futuriste</title>
 <style>
+  :root {
+    --bg-dark: #000;
+    --text-light: #fff;
+    --gray-mid: #888;
+    --accent: #fff;
+  }
+
+  /* Styles globaux */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
   }
-  .banner {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    background: #000;
+
+  /* Titre principal énorme et lumineux */
+  .hero {
+    height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
   }
-  .banner h1 {
-    font-size: 2em;
-    color: #fff;
-    margin-bottom: 10px;
+  .hero h1 {
+    font-size: 6em;
+    color: var(--accent);
+    text-shadow: 0 0 20px var(--accent), 0 0 40px #0ff, 0 0 60px #0ff;
+    animation: glow 2s infinite alternate;
   }
-  .banner p {
-    font-size: 1.2em;
-    color: #ccc;
-    margin-bottom: 20px;
-    max-width: 800px;
+  @keyframes glow {
+    0% { text-shadow: 0 0 10px var(--accent),0 0 20px #0ff; }
+    100% { text-shadow: 0 0 40px var(--accent),0 0 60px #0ff,0 0 80px #0ff; }
   }
-  .cta-button {
-    background: #fff;
+  .hero p {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: var(--gray-mid);
+  }
+
+  /* Bouton d’affiliation central */
+  .affiliate-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 20px 50px;
+    font-size: 1.5em;
     color: #000;
-    padding: 15px 30px;
+    background-color: var(--accent);
+    border-radius: 15px;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 5px;
+    box-shadow: 0 0 20px var(--accent);
+    transition: transform 0.3s, box-shadow 0.3s;
   }
-  .bubble {
+  .affiliate-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px var(--accent);
+  }
+
+  /* Sections explicatives */
+  .section {
+    padding: 80px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .section .text {
+    flex: 1 1 400px;
+    margin: 20px;
+  }
+  .section .text h2 {
+    font-size: 2.5em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .section .text p, .section .text ul {
+    font-size: 1.2em;
+    color: var(--gray-mid);
+    line-height: 1.6;
+  }
+  .section .text ul li {
+    margin-bottom: 10px;
+  }
+  .section .image {
+    flex: 1 1 400px;
+    margin: 20px;
+    text-align: center;
+  }
+  .section .image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 30px var(--accent);
+    transition: transform 0.4s;
+  }
+  .section .image img:hover {
+    transform: scale(1.05) rotate(1deg);
+  }
+
+  /* Icônes flottantes */
+  .floating-icon {
     position: absolute;
-    background: #222;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 1em;
-    opacity: 0.85;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
     pointer-events: none;
   }
-  /* Exemple positions flottantes */
-  .bubble1 { top: 50px; left: 20px; }
-  .bubble2 { top: 120px; right: 40px; }
-  .bubble3 { bottom: 60px; left: 50%; transform: translateX(-50%); }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--gray-mid);
+    border-top: 1px solid #222;
+  }
+
 </style>
 </head>
 <body>
 
-<!-- Bannière principale -->
-<div class="banner">
-  <h1>Deel : Simplifiez vos RH et paiements internationaux</h1>
-  <p>Gérez vos employés partout dans le monde, automatisez les paiements et assurez la conformité depuis un tableau de bord unique.</p>
-  <a href="#contact" class="cta-button">Commencez maintenant</a>
-
-  <!-- Titres flottants / bulles -->
-  <div class="bubble bubble1">Paiements Globaux</div>
-  <div class="bubble bubble2">Gestion RH Simplifiée</div>
-  <div class="bubble bubble3">Conformité Internationale</div>
+<!-- Hero Section -->
+<div class="hero">
+  <h1>TonTitreIA</h1>
+  <p>Le futur de l’intelligence artificielle, directement dans vos mains.</p>
+  <a href="TON-LIEN-AFFILIATION" class="affiliate-btn" target="_blank">Rejoignez-nous</a>
 </div>
 
-<!-- Section Contact / Call to Action -->
-<div class="banner" id="contact" style="background:#111;">
-  <h1>Rejoignez Deel dès aujourd’hui</h1>
-  <p>Optimisez la gestion de vos équipes et simplifiez vos paiements internationaux en un clic.</p>
-  <a href="https://www.deel.com" class="cta-button">Inscrivez-vous maintenant</a>
+<!-- Icônes flottantes -->
+<div class="floating-icon" style="top:10%; left:15%; background-image:url('https://img.icons8.com/ios-filled/60/artificial-intelligence.png');"></div>
+<div class="floating-icon" style="top:50%; left:80%; background-image:url('https://img.icons8.com/ios-filled/60/robot.png');"></div>
+<div class="floating-icon" style="top:70%; left:40%; background-image:url('https://img.icons8.com/ios-filled/60/machine-learning.png');"></div>
+<div class="floating-icon" style="top:30%; left:60%; background-image:url('https://img.icons8.com/ios-filled/60/data.png');"></div>
+<div class="floating-icon" style="top:80%; left:20%; background-image:url('https://img.icons8.com/ios-filled/60/network.png');"></div>
+
+<!-- Sections explicatives -->
+<div class="section">
+  <div class="text">
+    <h2>Qu'est-ce que TonTitreIA ?</h2>
+    <p>TonTitreIA est une plateforme révolutionnaire capable de générer des contenus visuels et d'automatiser des tâches grâce à l'intelligence artificielle. Explorez un univers où la créativité et la technologie se rencontrent.</p>
+    <ul>
+      <li>Génération d'images et vidéos IA</li>
+      <li>Personnalisation avancée</li>
+      <li>Intégration facile dans vos projets</li>
+      <li>Support et ressources premium</li>
+    </ul>
+  </div>
+  <div class="image">
+    <img src="https://via.placeholder.com/600x400?text=Image+IA" alt="Image IA">
+  </div>
 </div>
+
+<div class="section">
+  <div class="image">
+    <img src="https://via.placeholder.com/600x400?text=Fonctionnalités" alt="Fonctionnalités IA">
+  </div>
+  <div class="text">
+    <h2>Fonctionnalités avancées</h2>
+    <ul>
+      <li>Création d’illustrations à partir de texte</li>
+      <li>Outils de collaboration en temps réel</li>
+      <li>Analyse intelligente de données</li>
+      <li>Adapté aux professionnels et aux amateurs</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="text">
+    <h2>Pourquoi nous choisir ?</h2>
+    <p>Notre plateforme offre une expérience utilisateur fluide, des résultats rapides et de haute qualité, avec une interface futuriste et intuitive.</p>
+  </div>
+  <div class="image">
+    <img src="https://via.placeholder.com/600x400?text=Interface+Futuriste" alt="Interface Futuriste">
+  </div>
+</div>
+
+<footer>
+  © 2025 TonTitreIA - Tous droits réservés
+</footer>
+
+<script>
+  // Animation des icônes flottantes
+  const icons = document.querySelectorAll('.floating-icon');
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+
+  icons.forEach(icon => {
+    let x = Math.random() * windowWidth;
+    let y = Math.random() * windowHeight;
+    let dx = (Math.random() - 0.5) * 1.5;
+    let dy = (Math.random() - 0.5) * 1.5;
+
+    icon.style.left = x + 'px';
+    icon.style.top = y + 'px';
+
+    function animate() {
+      x += dx;
+      y += dy;
+      if(x < 0 || x > windowWidth - 60) dx = -dx;
+      if(y < 0 || y > windowHeight - 60) dy = -dy;
+      icon.style.left = x + 'px';
+      icon.style.top = y + 'px';
+      requestAnimationFrame(animate);
+    }
+    animate();
+  });
+</script>
 
 </body>
 </html>
